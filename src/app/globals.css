@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: #1d1d1f;
+  background: #ffffff;
+  font-feature-settings: "ss01", "cv11";
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: #1d1d1f;
+  color: #ffffff;
+}
+
+/* 自定义滚动条 - 极简风格 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d2d2d7;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #86868b;
+}

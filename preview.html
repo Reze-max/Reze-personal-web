@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>马睿哲 - 个人空间</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Noto Sans SC', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#000000',
+                        secondary: '#666666',
+                        tertiary: '#999999',
+                        border: '#e5e5e5',
+                        background: '#ffffff',
+                    },
+                    maxWidth: {
+                        content: '1200px',
+                    },
+                },
+            },
+        }
+    </script>
+    
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Noto Sans SC', sans-serif; color: #000000; background: #ffffff; line-height: 1.7; }
+        
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e5e5e5; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #999999; }
+        
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
+        .animate-fade-up { animation: fadeInUp 0.6s ease-out forwards; opacity: 0; }
+        
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        
+        .modal-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .modal-overlay.active .modal-content {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        
+        .nav-link { position: relative; padding-bottom: 2px; transition: all 0.2s ease; }
+        .nav-link:hover, .nav-link.active { color: #000000; font-weight: 500; }
+        .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #000000; transition: width 0.2s ease; }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    </style>
+</head>
+
+<body class="bg-background">
+    
+    <!-- 顶部导航栏 -->
+    <header class="fixed top-0 inset-x-0 z-40 bg-background/95 backdrop-blur-sm">
+        <div class="max-w-content mx-auto px-6 md:px-8 lg:px-16 py-4 flex justify-end">
+            <nav class="flex items-center gap-6 md:gap-8">
+                <a href="#home" class="nav-link text-sm text-secondary hover:text-primary transition-colors">首页</a>
+                <a href="#identity" class="nav-link text-sm text-secondary hover:text-primary transition-colors">我的身份</a>
+                <a href="#resume" class="nav-link text-sm text-secondary hover:text-primary transition-colors">实习经历</a>
+                <a href="#knowledge" class="nav-link text-sm text-secondary hover:text-primary transition-colors">个人技能</a>
+                <a href="#portfolio" class="nav-link text-sm text-secondary hover:text-primary transition-colors">作品集</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- 主内容 -->
+    <main>
+        
+        <!-- ============================================
+             Hero Section - 首页
+        ============================================ -->
+        <section id="home" class="min-h-screen flex items-center pt-20">
+            <div class="max-w-content mx-auto px-6 md:px-8 lg:px-16 py-16 lg:py-24 w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-10 md:gap-12 lg:gap-20 items-center">
+                    
+                    <!-- 左侧照片区域 -->
+                    <div class="order-2 lg:order-1 animate-fade-in delay-1">
+                        <div class="relative max-w-sm mx-auto lg:max-w-none">
+                            <img 
+                                src="新照片.jpg" 
+                                alt="马睿哲" 
+                                class="w-full h-auto rounded-lg"
+                                style="box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);"
+                            />
+                        </div>
+                    </div>
+                    
+                    <!-- 右侧文字区域 -->
+                    <div class="order-1 lg:order-2 space-y-8">
+                        <h1 class="animate-fade-up delay-2 text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-primary">
+                            你好，我是马睿哲
+                        </h1>
+                        
+                        <div class="animate-fade-up delay-3 space-y-6">
+                            <p class="text-lg text-secondary leading-relaxed">
+                                欢迎来到我的个人空间
+                            </p>
+                            <p class="text-lg text-secondary leading-relaxed">
+                                我是一名正在努力成为产品经理的研究生
+                            </p>
+                        </div>
+                        
+                        <div class="animate-fade-up delay-4">
+                            <button class="w-full max-w-xs px-6 py-3 border border-border rounded-lg text-sm text-primary font-medium hover:bg-gray-50 hover:border-primary/30 transition-all duration-200 flex items-center justify-center gap-2">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="4"/>
+                                    <path d="M12 2v4M12 18v4M20 12h4M2 12h4"/>
+                                </svg>
+                                与我对话
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ============================================
+             Identity Section - 身份
+        ============================================ -->
+        <section id="identity" class="py-20 md:py-24 lg:py-32 bg-background">
+            <div class="max-w-content mx-auto px-6 md:px-8 lg:px-16">
+                <!-- 我的身份模块标题 -->
+                <div class="max-w-[1200px] mb-[32px]">
+                    <div class="relative inline-block animate-fade-up">
+                        <div class="absolute -top-3 -left-3 w-5 h-5 border-t-[3px] border-l-[3px] border-[#222222]"></div>
+                        <div class="absolute -bottom-3 -right-3 w-5 h-5 border-b-[3px] border-r-[3px] border-[#222222]"></div>
+                        <h2 class="text-[20px] md:text-[28px] font-semibold text-[#111111] tracking-[0.02em] leading-[1.2]">我的身份</h2>
+                        <div class="absolute -bottom-2.5 left-0 flex items-center">
+                            <div class="w-1.5 h-1.5 bg-[#222222] rounded-full mr-1.5"></div>
+                            <div class="w-[140px] h-[2px] bg-[#cccccc]"></div>
+                            <div class="w-1.5 h-1.5 bg-[#222222] rounded-full ml-1.5"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 lg:gap-16">
+                    <div class="border border-border rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200">
+                        <div class="p-3 pb-2 border-b border-border">
+                            <h3 class="text-lg font-medium">在校研究生</h3>
+                        </div>
+                        <div class="h-[400px] bg-white">
+                            <img src="1.jpg" alt="在校研究生" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4 space-y-2">
+                            <p class="text-sm text-secondary">北京交通大学信息管理硕士在读</p>
+                        </div>
+                    </div>
+                    <div class="border border-border rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200">
+                        <div class="p-3 pb-2 border-b border-border">
+                            <h3 class="text-lg font-medium">AI产品经理</h3>
+                        </div>
+                        <div class="h-[400px] bg-white">
+                            <img src="2.jpg" alt="AI产品经理" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4 space-y-2">
+                            <p class="text-sm text-secondary">专注于AI产品与数据产品方向</p>
+                        </div>
+                    </div>
+                    <div class="border border-border rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200">
+                        <div class="p-3 pb-2 border-b border-border">
+                            <h3 class="text-lg font-medium">数据分析师</h3>
+                        </div>
+                        <div class="h-[400px] bg-white">
+                            <img src="3.jpg" alt="数据分析师" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4 space-y-2">
+                            <p class="text-sm text-secondary">具备扎实的数据分析与可视化能力</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ============================================
+             Resume Section - 履历
+        ============================================ -->
+        <section id="resume" class="py-20 md:py-24 lg:py-32 bg-background border-t border-border">
+            <div class="max-w-content mx-auto px-6 md:px-8 lg:px-16">
+                <!-- 实习经历模块标题 -->
+                <div class="max-w-[1200px] mb-[32px]">
+                    <div class="relative inline-block animate-fade-up">
+                        <div class="absolute -top-3 -left-3 w-5 h-5 border-t-[3px] border-l-[3px] border-[#222222]"></div>
+                        <div class="absolute -bottom-3 -right-3 w-5 h-5 border-b-[3px] border-r-[3px] border-[#222222]"></div>
+                        <h2 class="text-[20px] md:text-[28px] font-semibold text-[#111111] tracking-[0.02em] leading-[1.2]">实习经历</h2>
+                        <div class="absolute -bottom-2.5 left-0 flex items-center">
+                            <div class="w-1.5 h-1.5 bg-[#222222] rounded-full mr-1.5"></div>
+                            <div class="w-[140px] h-[2px] bg-[#cccccc]"></div>
+                            <div class="w-1.5 h-1.5 bg-[#222222] rounded-full ml-1.5"></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-base text-secondary mb-6 md:mb-8">从洞察真实需求出发，以创造性工作为径，将价值深植于业务与用户之中。</p>
+                
+                <div class="relative">
+                    <div class="absolute left-1.5 top-0 bottom-0 w-px bg-border"></div>
+                    
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-3 h-3 rounded-full border-2 border-black flex items-center justify-center z-10 bg-white"></div>
+                            <div class="flex-1">
+                                <div class="border border-border rounded-lg p-6 hover:shadow-md transition-shadow duration-200 cursor-pointer resume-card" data-modal-target="resume-modal-1">
+                                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-3">
+                                        <h4 class="font-medium">百度在线网络技术（北京）有限公司</h4>
+                                        <span class="text-sm text-tertiary mt-2 md:mt-0">2025.12 - 2026.03</span>
+                                    </div>
+                                    <p class="text-sm text-secondary mb-4">产品实习生</p>
+                                    <ul class="text-sm text-secondary space-y-2 leading-relaxed">
+                                        <li>• 参与设计D端医生排序诊断工具，提升医生对排序机制的理解</li>
+                                        <li>• 负责指标拆解、SQL取数与异常波动归因分析</li>
+                                        <li>• 搭建抢单活动60s接诊率监控体系</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ============================================
+             Knowledge Section - 个人技能
+        ============================================ -->
+        <section id="knowledge" class="py-20 md:py-24 lg:py-32 bg-background border-t border-border">
+            <div class="max-w-content mx-auto px-6 md:px-8 lg:px-16">
+                <!-- 个人技能模块标题 -->
+                <div class="max-w-[1200px] mb-[32px]">
+                    <div class="relative inline-block animate-fade-up">
+                        <!-- 左上角L型装饰框 -->
+                        <div class="absolute -top-3 -left-3 w-5 h-5 border-t-[3px] border-l-[3px] border-[#222222]"></div>
+                        <!-- 右下角L型装饰框 -->
+                        <div class="absolute -bottom-3 -right-3 w-5 h-5 border-b-[3px] border-r-[3px] border-[#222222]"></div>
+                        <!-- 标题文字 -->
+                        <h2 class="text-[20px] md:text-[28px] font-semibold text-[#111111] tracking-[0.02em] leading-[1.2]">个人技能</h2>
+                        <!-- 底部辅助线 -->
+                        <div class="absolute -bottom-2.5 left-0 flex items-center">
+                            <div class="w-1.5 h-1.5 bg-[#222222] rounded-full mr-1.5"></div>
+                            <div class="w-[140px] h-[2px] bg-[#cccccc]"></div>
+                            <div class="w-1.5 h-1.5 bg-[#222222] rounded-full ml-1.5"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 lg:gap-12">
+                    <div>
+                        <h3 class="text-lg font-medium mb-4">产品能力</h3>
+                        <ul class="text-sm text-secondary space-y-2 leading-relaxed">
+                            <li>• 需求分析与竞品调研</li>
+                            <li>• PRD/MRD撰写</li>
+                            <li>• Axure原型设计</li>
+                            <li>• 用户反馈收集分析</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-medium mb-4">数据分析</h3>
+                        <ul class="text-sm text-secondary space-y-2 leading-relaxed">
+                            <li>• SQL数据提取</li>
+                            <li>• Python数据分析</li>
+                            <li>• Tableau/PowerBI可视化</li>
+                            <li>• A/B实验设计分析</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-medium mb-4">AI能力</h3>
+                        <ul class="text-sm text-secondary space-y-2 leading-relaxed">
+                            <li>• Prompt Engineering</li>
+                            <li>• Agent Workflow</li>
+                            <li>• 主流AI工具应用</li>
+                            <li>• Vibe-coding经验</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ============================================
+             Portfolio Section - 作品集
+        ============================================ -->
+        <section id="portfolio" class="py-20 md:py-24 lg:py-32 bg-background border-t border-border">
+            <div class="max-w-content mx-auto px-6 md:px-8 lg:px-16">
+                <!-- 作品集模块标题 -->
+                <div class="max-w-[1200px] mb-[32px]">
+                    <div class="relative inline-block animate-fade-up">
+                        <div class="absolute -top-3 -left-3 w-5 h-5 border-t-[3px] border-l-[3px] border-[#222222]"></div>
+                        <div class="absolute -bottom-3 -right-3 w-5 h-5 border-b-[3px] border-r-[3px] border-[#222222]"></div>
+                        <h2 class="text-[20px] md:text-[28px] font-semibold text-[#111111] tracking-[0.02em] leading-[1.2]">作品集</h2>
+                        <div class="absolute -bottom-2.5 left-0 flex items-center">
+                            <div class="w-1.5 h-1.5 bg-[#222222] rounded-full mr-1.5"></div>
+                            <div class="w-[140px] h-[2px] bg-[#cccccc]"></div>
+                            <div class="w-1.5 h-1.5 bg-[#222222] rounded-full ml-1.5"></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-secondary mb-6 md:mb-8">这里展示了我在AI产品、数据分析、产品设计与可视化等方向的项目作品。点击任意项目卡片，查看完整项目案例。</p>
+                
+                <!-- 分类标签 -->
+                <div class="flex flex-wrap gap-3 mb-10">
+                    <button class="filter-btn active px-5 py-2 border border-black bg-black text-white text-sm font-medium rounded hover:bg-white hover:text-black transition-colors">All</button>
+                    <button class="filter-btn px-5 py-2 border border-border text-sm font-medium rounded hover:border-black hover:text-black transition-colors">Vibecoding</button>
+                    <button class="filter-btn px-5 py-2 border border-border text-sm font-medium rounded hover:border-black hover:text-black transition-colors">AI Agent</button>
+                    <button class="filter-btn px-5 py-2 border border-border text-sm font-medium rounded hover:border-black hover:text-black transition-colors">Data Analysis</button>
+                    <button class="filter-btn px-5 py-2 border border-border text-sm font-medium rounded hover:border-black hover:text-black transition-colors">Product</button>
+                    <button class="filter-btn px-5 py-2 border border-border text-sm font-medium rounded hover:border-black hover:text-black transition-colors">Dashboard</button>
+                </div>
+                
+                <!-- 项目网格 -->
+                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <!-- AI Product Copilot -->
+                    <div class="project-card group cursor-pointer border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300">
+                        <div class="h-48 bg-gray-900 flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/50 to-purple-900/50"></div>
+                            <div class="relative z-10 text-white text-center">
+                                <div class="text-4xl mb-2">🤖</div>
+                                <p class="text-sm opacity-80">AI Agent</p>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-medium mb-3">AI Product Copilot</h3>
+                            <p class="text-sm text-secondary mb-4 line-clamp-2">面向产品经理的AI Copilot，支持需求分析、竞品调研、PRD生成、需求拆解等。</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">AI Agent</span>
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">Vibecoding</span>
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">LangGraph</span>
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">LLM</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 医生排序诊断工具 -->
+                    <div class="project-card group cursor-pointer border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300">
+                        <div class="h-48 bg-gray-50 flex items-center justify-center">
+                            <img src="https://via.placeholder.com/400x300?text=Product+Design" alt="产品设计" class="w-full h-full object-cover opacity-70">
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-medium mb-3">百度医生排序诊断工具</h3>
+                            <p class="text-sm text-secondary mb-4 line-clamp-2">设计医生排序诊断工具，提升医生对排序机制的理解与自优化意愿。</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">Product</span>
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">Product Design</span>
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">A/B Test</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 电商用户行为分析 (RFM) -->
+                    <div class="project-card group cursor-pointer border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300">
+                        <div class="h-48 bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center relative overflow-hidden">
+                            <svg viewBox="0 0 400 300" class="w-full h-full p-4">
+                                <defs>
+                                    <linearGradient id="barGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#1D4ED8;stop-opacity:1" />
+                                    </linearGradient>
+                                    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#EC4899;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <rect x="60" y="250" width="280" height="8" fill="#E5E7EB" rx="4"/>
+                                <rect x="60" y="200" width="280" height="8" fill="#E5E7EB" rx="4"/>
+                                <g>
+                                    <rect x="80" y="242" width="30" height="8" fill="url(#barGradient)" rx="4"/>
+                                    <rect x="120" y="230" width="30" height="20" fill="url(#barGradient)" rx="4"/>
+                                    <rect x="160" y="210" width="30" height="40" fill="url(#barGradient)" rx="4"/>
+                                    <rect x="200" y="180" width="30" height="70" fill="url(#barGradient)" rx="4"/>
+                                    <rect x="240" y="150" width="30" height="100" fill="url(#barGradient)" rx="4"/>
+                                    <rect x="280" y="120" width="30" height="130" fill="url(#barGradient)" rx="4"/>
+                                    <rect x="320" y="90" width="30" height="160" fill="url(#barGradient)" rx="4"/>
+                                </g>
+                                <g>
+                                    <circle cx="100" cy="220" r="4" fill="#8B5CF6"/>
+                                    <circle cx="150" cy="195" r="4" fill="#8B5CF6"/>
+                                    <circle cx="200" cy="170" r="4" fill="#8B5CF6"/>
+                                    <circle cx="250" cy="145" r="4" fill="#8B5CF6"/>
+                                    <circle cx="300" cy="120" r="4" fill="#8B5CF6"/>
+                                    <circle cx="350" cy="160" r="4" fill="#EC4899"/>
+                                </g>
+                                <path d="M 100 220 Q 125 207.5 150 195 T 200 170 T 250 145 T 300 120 T 350 160" stroke="url(#lineGradient)" stroke-width="3" fill="none"/>
+                                <g transform="translate(280, 60)">
+                                    <rect width="80" height="50" fill="rgba(59, 130, 246, 0.1)" stroke="#3B82F6" stroke-width="2" rx="4"/>
+                                    <rect x="10" y="10" width="15" height="8" fill="#1D4ED8" rx="2"/>
+                                    <rect x="30" y="10" width="15" height="12" fill="#3B82F6" rx="2"/>
+                                    <rect x="50" y="10" width="15" height="16" fill="#60A5FA" rx="2"/>
+                                    <rect x="10" y="30" width="15" height="14" fill="#3B82F6" rx="2"/>
+                                    <rect x="30" y="30" width="15" height="18" fill="#60A5FA" rx="2"/>
+                                    <rect x="50" y="30" width="15" height="22" fill="#93C5FD" rx="2"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-medium mb-3">电商用户行为分析 (RFM)</h3>
+                            <p class="text-sm text-secondary mb-4 line-clamp-2">基于电商数据完成RFM建模、用户分层与价值挖掘，输出精细化运营策略。</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">Data Analysis</span>
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">Python</span>
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">SQL</span>
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">Jupyter</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 解忧杂货店的销售数据看板 -->
+                    <div class="project-card group cursor-pointer border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300" data-modal-target="powerbi-modal">
+                        <div class="h-48 bg-gradient-to-br from-purple-50 to-indigo-50 flex items-center justify-center overflow-hidden">
+                            <img src="解忧杂货店销售数据看板.jpg" alt="解忧杂货店销售数据看板" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-medium mb-3">解忧杂货店的销售数据看板</h3>
+                            <p class="text-sm text-secondary mb-4 line-clamp-2">解忧杂货店销售数据看板，支持多维度分析与业绩追踪。</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">Dashboard</span>
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">PowerBI</span>
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">KPI</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Superstore经营情况仪表盘 -->
+                    <div class="project-card group cursor-pointer border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300" data-modal-target="superstore-modal">
+                        <div class="h-48 bg-gradient-to-br from-amber-50 to-orange-50 flex items-center justify-center overflow-hidden">
+                            <img 
+                                src="superstore经营情况仪表盘.jpg" 
+                                alt="Superstore经营情况仪表盘" 
+                                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-medium mb-3">Superstore经营情况仪表盘</h3>
+                            <p class="text-sm text-secondary mb-4 line-clamp-2">基于Tableau构建的超市经营数据分析仪表盘，涵盖销售、利润、区域等多维度分析。</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">Dashboard</span>
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">Tableau</span>
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">Data Viz</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 运营分析看板 -->
+                    <div class="project-card group cursor-pointer border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300">
+                        <div class="h-48 bg-gray-900 flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-br from-slate-800/50 to-blue-900/50"></div>
+                            <div class="relative z-10 text-white text-center">
+                                <div class="text-4xl mb-2">📊</div>
+                                <p class="text-sm opacity-80">Dashboard</p>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-medium mb-3">运营分析看板</h3>
+                            <p class="text-sm text-secondary mb-4 line-clamp-2">搭建运营核心指标体系与可视化看板，帮助团队监控业务增长。</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">Dashboard</span>
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">SQL</span>
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">Data Visualization</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 用户增长分析 (Tableau) -->
+                    <div class="project-card group cursor-pointer border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300" data-modal-target="tableau-modal">
+                        <div class="h-48 bg-gradient-to-br from-green-50 to-teal-50 flex items-center justify-center overflow-hidden">
+                            <img src="https://via.placeholder.com/400x300?text=Tableau+Dashboard" alt="Tableau" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-medium mb-3">用户增长分析 (Tableau)</h3>
+                            <p class="text-sm text-secondary mb-4 line-clamp-2">使用Tableau构建用户增长分析仪表盘，洞察用户增长来源与转化路径。</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">Dashboard</span>
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">Tableau</span>
+                                <span class="px-3 py-1 bg-gray-100 text-xs text-secondary rounded">Data Viz</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 分页控制区域 -->
+                <div id="pagination-container" class="flex justify-center items-center gap-4 mt-12">
+                    <button id="prev-page" class="px-4 py-2 border border-border rounded text-sm font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:border-black hover:text-black">
+                        <svg class="w-4 h-4 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                        上一页
+                    </button>
+                    <span id="page-info" class="text-sm text-secondary font-medium px-4 py-2 bg-gray-100 rounded">1/1</span>
+                    <button id="next-page" class="px-4 py-2 border border-border rounded text-sm font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:border-black hover:text-black">
+                        下一页
+                        <svg class="w-4 h-4 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="py-8 border-t border-border">
+            <div class="max-w-content mx-auto px-6 md:px-8 lg:px-16 text-center">
+                <p class="text-xs text-tertiary">© 2026 马睿哲</p>
+            </div>
+        </footer>
+        
+        <!-- 履历详情模态框 -->
+        <div class="modal-overlay fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4" id="resume-modal-1">
+            <div class="modal-content bg-background rounded-lg max-w-2xl w-full max-h-[85vh] overflow-hidden shadow-2xl">
+                <div class="p-6 md:p-8 border-b border-border flex justify-between items-center">
+                    <h3 class="text-xl font-medium">百度在线网络技术（北京）有限公司</h3>
+                    <button class="modal-close text-tertiary hover:text-primary transition-colors text-2xl leading-none">&times;</button>
+                </div>
+                <div class="p-6 md:p-8 overflow-y-auto max-h-[calc(85vh-80px)]">
+                    <div class="mb-6">
+                        <p class="text-sm text-tertiary mb-4">2025.12 - 2026.03</p>
+                        <p class="text-lg text-primary font-bold">百度 · 百度健康医生端 · 产品实习生</p>
+                    </div>
+                    <div class="space-y-6 text-base text-secondary leading-6">
+                        <p><strong class="text-primary">业务简介：</strong>百度健康是国内头部互联网医疗健康平台，业务覆盖在线问诊、医生运营管理、健康科普、医药健康服务等板块；我所在D端医生产品线，核心负责平台入驻执业医生精细化运营、问诊规则迭代、接诊效率提升与医生生态治理，通过产品化工具落地优化平台医生接单、排序、流量分配全链路机制。</p>
+                        <p><strong class="text-primary">产品设计：</strong>围绕医生侧"排序规则不透明、问题排查效率低"的核心痛点，参与D端医生排序诊断工具从0到1产品设计。拆解医生投诉与反馈全链路，划分客观权重指标、人工干预等多类排序因子，对标行业同类问诊平台竞品的排序解释方案，落地产品需求文档与墨刀原型，上线排序因子可视化、多医生横向对比、异常排名一键溯源功能，有效降低医生咨询投诉量，强化医生自主优化经营的积极性。</p>
+                        <p><strong class="text-primary">数据分析：</strong>根据运营侧需求拆解接诊率、医生月活跃、问诊转化三大核心指标，自主完成指标口径梳理、SQL数据提取、数据异动归因与图表可视化，沉淀标准化SQL取数模板，统一全组数据统计口径、缩短日常取数耗时；跟进医生排序规则迭代A/B实验，锚定规则变动带来的流量、接单数据变化，提炼关键影响变量，输出数据分析报告指导排序策略迭代优化。</p>
+                        <p><strong class="text-primary">活动分析：</strong>全程跟进为期40天平台医生抢单专项活动，以60s即时接诊率为核心搭建全周期数据监控看板，实时追踪数据波动并定位异常诱因；基于历史接诊数据对医生分层分级，落地分层差异化消息Push触达方案，显著提升活动参与科室60s接诊率与平台整体非定向问诊接单转化率。</p>
+                        <p><strong class="text-primary">AI赋能：</strong>落地AI工具常态化赋能工作，借助大模型完成需求拆解、分析思路梳理、SQL脚本编写、标准化Prompt沉淀与产品文档撰写；自主搭建简易自动化工作流，实现重复报表自动生成、基础数据批量处理，压缩重复性办公工时。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 解忧杂货店销售数据看板详情模态框 -->
+        <div class="modal-overlay fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4 hidden" id="powerbi-modal">
+            <div class="modal-content bg-background rounded-lg max-w-6xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
+                <div class="p-6 md:p-8 border-b border-border flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">解忧杂货店的销售数据看板</h3>
+                        <p class="text-sm text-tertiary">多维度销售数据可视化分析</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="#" target="_blank" class="text-sm text-secondary hover:text-primary transition-colors flex items-center gap-1">
+                            <span>全屏查看</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+                        </a>
+                        <button class="modal-close text-tertiary hover:text-primary transition-colors text-2xl leading-none">&times;</button>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8 overflow-y-auto max-h-[calc(90vh-80px)]">
+                    <!-- 项目介绍 -->
+                    <div class="mb-8">
+                        <h4 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                            <span class="w-1 h-6 bg-black"></span>
+                            项目简介
+                        </h4>
+                        <p class="text-secondary leading-relaxed mb-4">
+                            解忧杂货店的销售数据看板是基于PowerBI构建的销售数据可视化平台，整合多数据源实现销售业绩的实时监控与深度分析。平台涵盖销售漏斗、区域业绩、产品销量、客户分析等核心模块，帮助店铺管理者快速洞察业务状况，支撑数据驱动决策。
+                        </p>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                            <div class="border border-border rounded-lg p-4">
+                                <p class="text-xs text-tertiary mb-1">数据源</p>
+                                <p class="text-sm font-medium">MySQL + CSV</p>
+                            </div>
+                            <div class="border border-border rounded-lg p-4">
+                                <p class="text-xs text-tertiary mb-1">可视化工具</p>
+                                <p class="text-sm font-medium">PowerBI</p>
+                            </div>
+                            <div class="border border-border rounded-lg p-4">
+                                <p class="text-xs text-tertiary mb-1">更新频率</p>
+                                <p class="text-sm font-medium">每日自动</p>
+                            </div>
+                            <div class="border border-border rounded-lg p-4">
+                                <p class="text-xs text-tertiary mb-1">访问量</p>
+                                <p class="text-sm font-medium">日均200+</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 核心指标 -->
+                    <div class="mb-8">
+                        <h4 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                            <span class="w-1 h-6 bg-black"></span>
+                            核心分析维度
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="border border-border rounded-lg p-4">
+                                <p class="text-sm font-medium mb-2">📊 销售业绩分析</p>
+                                <p class="text-xs text-secondary">追踪销售额、毛利率、完成率等核心KPI，支持多周期对比与趋势分析</p>
+                            </div>
+                            <div class="border border-border rounded-lg p-4">
+                                <p class="text-sm font-medium mb-2">🗺️ 区域市场洞察</p>
+                                <p class="text-xs text-secondary">按区域、门店、渠道多维度拆解业绩，发现增长机会点</p>
+                            </div>
+                            <div class="border border-border rounded-lg p-4">
+                                <p class="text-sm font-medium mb-2">📦 产品销量分析</p>
+                                <p class="text-xs text-secondary">分析产品结构、SKU表现、库存周转，指导品类优化</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- PowerBI看板展示 -->
+                    <div class="mb-8">
+                        <h4 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                            <span class="w-1 h-6 bg-black"></span>
+                            数据看板
+                        </h4>
+                        <div class="border border-border rounded-lg overflow-hidden bg-gradient-to-br from-purple-50 to-blue-50 mb-4">
+                            <div class="h-96 md:h-[600px] lg:h-[800px] flex items-center justify-center">
+                                <iframe src="销售数据看板.pdf#toolbar=1&navpanes=0&view=FitH" 
+                                        class="w-full h-full bg-white"
+                                        style="border: none; min-height: 600px;">
+                                </iframe>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-border rounded-lg p-6 bg-white">
+                            <p class="text-center text-sm text-secondary mb-4">
+                                该数据看板使用 PowerBI Desktop 构建，包含以下核心分析模块：
+                            </p>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                                <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-lg p-3 text-center shadow-sm">
+                                    <p class="text-2xl mb-1">📊</p>
+                                    <p class="text-xs font-medium">销售业绩</p>
+                                </div>
+                                <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-lg p-3 text-center shadow-sm">
+                                    <p class="text-2xl mb-1">🗺️</p>
+                                    <p class="text-xs font-medium">区域分析</p>
+                                </div>
+                                <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-lg p-3 text-center shadow-sm">
+                                    <p class="text-2xl mb-1">📦</p>
+                                    <p class="text-xs font-medium">产品销量</p>
+                                </div>
+                                <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-lg p-3 text-center shadow-sm">
+                                    <p class="text-2xl mb-1">👥</p>
+                                    <p class="text-xs font-medium">客户分析</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col items-center gap-4">
+                                <a href="数据看板.pbix" download="解忧杂货店销售数据看板.pbix" 
+                                   class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all shadow-md hover:shadow-lg">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                                    </svg>
+                                    下载 PowerBI 文件 (.pbix)
+                                </a>
+                                <p class="text-xs text-gray-400 text-center">
+                                    下载后使用 PowerBI Desktop 打开，可查看完整交互效果
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 技术实现 -->
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                            <span class="w-1 h-6 bg-black"></span>
+                            技术实现要点
+                        </h4>
+                        <div class="border border-border rounded-lg p-6">
+                            <ul class="space-y-3 text-sm text-secondary">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span><strong>数据建模：</strong>使用PowerBI Desktop构建星型模型，实现销售事实表与维表的关联，支持多表联合分析</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span><strong>DAX函数：</strong>运用CALCULATE、FILTER、SUMMARIZE等高级DAX函数实现复杂业务逻辑计算</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span><strong>可视化设计：</strong>采用卡片、柱状图、折线图、饼图、热力图等多种图表，直观呈现数据洞察</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span><strong>权限管理：</strong>通过PowerBI行级安全(RLS)实现不同角色的数据访问控制</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 用户增长分析 (Tableau) 详情模态框 -->
+        <div class="modal-overlay fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4 hidden" id="tableau-modal">
+            <div class="modal-content bg-background rounded-lg max-w-6xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
+                <div class="p-6 md:p-8 border-b border-border flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">用户增长分析 (Tableau)</h3>
+                        <p class="text-sm text-tertiary">多维度用户增长数据可视化分析</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="#" target="_blank" class="text-sm text-secondary hover:text-primary transition-colors flex items-center gap-1">
+                            <span>全屏查看</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+                        </a>
+                        <button class="modal-close text-tertiary hover:text-primary transition-colors text-2xl leading-none">&times;</button>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8 overflow-y-auto max-h-[calc(90vh-80px)]">
+                    <!-- 项目介绍 -->
+                    <div class="mb-8">
+                        <h4 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                            <span class="w-1 h-6 bg-green-500"></span>
+                            项目简介
+                        </h4>
+                        <p class="text-secondary leading-relaxed mb-4">
+                            用户增长分析仪表盘是基于Tableau构建的用户行为分析平台，整合用户注册、活跃、留存、转化等核心数据，实现用户增长趋势的实时监控与深度洞察。平台涵盖用户获取渠道分析、用户行为路径追踪、用户生命周期价值评估等核心模块，帮助产品团队快速识别增长机会，优化用户运营策略。
+                        </p>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                            <div class="border border-border rounded-lg p-4">
+                                <p class="text-xs text-tertiary mb-1">数据源</p>
+                                <p class="text-sm font-medium">Snowflake + Google Analytics</p>
+                            </div>
+                            <div class="border border-border rounded-lg p-4">
+                                <p class="text-xs text-tertiary mb-1">可视化工具</p>
+                                <p class="text-sm font-medium">Tableau Desktop</p>
+                            </div>
+                            <div class="border border-border rounded-lg p-4">
+                                <p class="text-xs text-tertiary mb-1">更新频率</p>
+                                <p class="text-sm font-medium">每小时自动</p>
+                            </div>
+                            <div class="border border-border rounded-lg p-4">
+                                <p class="text-xs text-tertiary mb-1">访问量</p>
+                                <p class="text-sm font-medium">日均500+</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 核心指标 -->
+                    <div class="mb-8">
+                        <h4 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                            <span class="w-1 h-6 bg-green-500"></span>
+                            核心分析维度
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="border border-border rounded-lg p-4">
+                                <p class="text-sm font-medium mb-2">📈 用户获取分析</p>
+                                <p class="text-xs text-secondary">分析各渠道用户获取质量，评估渠道ROI，优化投放策略</p>
+                            </div>
+                            <div class="border border-border rounded-lg p-4">
+                                <p class="text-sm font-medium mb-2">📊 用户行为分析</p>
+                                <p class="text-xs text-secondary">追踪用户在产品内的行为路径，识别关键转化节点</p>
+                            </div>
+                            <div class="border border-border rounded-lg p-4">
+                                <p class="text-sm font-medium mb-2">🔄 用户留存分析</p>
+                                <p class="text-xs text-secondary">分析用户留存曲线，制定针对性留存提升策略</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tableau看板展示 -->
+                    <div class="mb-8">
+                        <h4 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                            <span class="w-1 h-6 bg-green-500"></span>
+                            数据看板
+                        </h4>
+                        <div class="border border-border rounded-lg overflow-hidden bg-gradient-to-br from-green-50 to-teal-50 mb-4">
+                            <div class="h-96 md:h-[600px] lg:h-[800px] flex items-center justify-center">
+                                <div class="bg-white rounded-lg shadow-xl p-10 max-w-lg w-full text-center">
+                                    <div class="flex items-center justify-center mb-6">
+                                        <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-teal-600 rounded-xl flex items-center justify-center">
+                                            <svg class="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M3 13h2v8H3v-8zm4-5h2v13H7V8zm4-5h2v18h-2V3zm4 8h2v10h-2V11zm4-3h2v13h-2V8z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <h5 class="text-lg font-semibold mb-2">Tableau Dashboard</h5>
+                                    <p class="text-sm text-secondary mb-6">用户增长分析仪表盘</p>
+                                    <div class="bg-gradient-to-r from-green-100 to-teal-100 rounded-lg p-4">
+                                        <p class="text-xs text-secondary mb-3">仪表盘包含以下分析模块：</p>
+                                        <div class="flex flex-wrap justify-center gap-2">
+                                            <span class="px-3 py-1 bg-white text-xs text-green-600 rounded-full shadow-sm">用户获取</span>
+                                            <span class="px-3 py-1 bg-white text-xs text-green-600 rounded-full shadow-sm">行为分析</span>
+                                            <span class="px-3 py-1 bg-white text-xs text-green-600 rounded-full shadow-sm">留存分析</span>
+                                            <span class="px-3 py-1 bg-white text-xs text-green-600 rounded-full shadow-sm">转化漏斗</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-border rounded-lg p-6 bg-white">
+                            <p class="text-center text-sm text-secondary mb-4">
+                                该仪表盘使用 Tableau Desktop 构建，包含以下核心分析模块：
+                            </p>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                                <div class="bg-gradient-to-br from-green-50 to-teal-50 rounded-lg p-3 text-center shadow-sm">
+                                    <p class="text-2xl mb-1">📈</p>
+                                    <p class="text-xs font-medium">用户获取</p>
+                                </div>
+                                <div class="bg-gradient-to-br from-green-50 to-teal-50 rounded-lg p-3 text-center shadow-sm">
+                                    <p class="text-2xl mb-1">📊</p>
+                                    <p class="text-xs font-medium">行为分析</p>
+                                </div>
+                                <div class="bg-gradient-to-br from-green-50 to-teal-50 rounded-lg p-3 text-center shadow-sm">
+                                    <p class="text-2xl mb-1">🔄</p>
+                                    <p class="text-xs font-medium">留存分析</p>
+                                </div>
+                                <div class="bg-gradient-to-br from-green-50 to-teal-50 rounded-lg p-3 text-center shadow-sm">
+                                    <p class="text-2xl mb-1">🎯</p>
+                                    <p class="text-xs font-medium">转化分析</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col items-center gap-4">
+                                <a href="#" download="用户增长分析.twbx" 
+                                   class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500 to-teal-600 text-white font-medium rounded-lg hover:from-green-600 hover:to-teal-700 transition-all shadow-md hover:shadow-lg">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                                    </svg>
+                                    下载 Tableau 文件 (.twbx)
+                                </a>
+                                <p class="text-xs text-gray-400 text-center">
+                                    下载后使用 Tableau Desktop 或 Tableau Reader 打开，查看完整交互效果
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 技术实现 -->
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                            <span class="w-1 h-6 bg-green-500"></span>
+                            技术实现要点
+                        </h4>
+                        <div class="border border-border rounded-lg p-6">
+                            <ul class="space-y-3 text-sm text-secondary">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-green-600 font-bold">•</span>
+                                    <span><strong>数据连接：</strong>建立与Snowflake数据仓库和Google Analytics的实时连接，支持多数据源联合分析</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-green-600 font-bold">•</span>
+                                    <span><strong>数据准备：</strong>使用Tableau Prep进行数据清洗、转换和整合，构建分析就绪的数据集</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-green-600 font-bold">•</span>
+                                    <span><strong>可视化设计：</strong>运用Tableau强大的图表库，创建交互式仪表盘，支持钻取、筛选和自定义视图</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-green-600 font-bold">•</span>
+                                    <span><strong>发布共享：</strong>通过Tableau Server发布仪表盘，实现团队协作和数据共享</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Superstore经营情况仪表盘详情模态框 -->
+        <div class="modal-overlay fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4 hidden" id="superstore-modal">
+            <div class="modal-content bg-background rounded-lg max-w-6xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
+                <div class="p-6 md:p-8 border-b border-border flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Superstore经营情况仪表盘</h3>
+                        <p class="text-sm text-tertiary">基于Tableau构建的超市经营数据可视化分析</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="#" target="_blank" class="text-sm text-secondary hover:text-primary transition-colors flex items-center gap-1">
+                            <span>全屏查看</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+                        </a>
+                        <button class="modal-close text-tertiary hover:text-primary transition-colors text-2xl leading-none">&times;</button>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8 overflow-y-auto max-h-[calc(90vh-80px)]">
+                    <!-- 项目介绍 -->
+                    <div class="mb-8">
+                        <h4 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                            <span class="w-1 h-6 bg-amber-500"></span>
+                            项目简介
+                        </h4>
+                        <p class="text-secondary leading-relaxed mb-4">
+                            Superstore经营情况仪表盘是基于Tableau构建的超市经营数据分析平台，整合销售业绩、利润分析、区域分布、产品类别等核心数据，实现经营状况的实时监控与深度洞察。平台涵盖销售趋势分析、区域业绩对比、产品类别贡献、客户细分分析等核心模块，帮助管理层快速识别经营机会与风险点，优化库存管理与营销策略。
+                        </p>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                            <div class="border border-border rounded-lg p-4">
+                                <p class="text-xs text-tertiary mb-1">数据源</p>
+                                <p class="text-sm font-medium">Superstore销售数据</p>
+                            </div>
+                            <div class="border border-border rounded-lg p-4">
+                                <p class="text-xs text-tertiary mb-1">可视化工具</p>
+                                <p class="text-sm font-medium">Tableau Desktop</p>
+                            </div>
+                            <div class="border border-border rounded-lg p-4">
+                                <p class="text-xs text-tertiary mb-1">数据量</p>
+                                <p class="text-sm font-medium">10,000+订单</p>
+                            </div>
+                            <div class="border border-border rounded-lg p-4">
+                                <p class="text-xs text-tertiary mb-1">分析周期</p>
+                                <p class="text-sm font-medium">4年历史数据</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 核心分析维度 -->
+                    <div class="mb-8">
+                        <h4 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                            <span class="w-1 h-6 bg-amber-500"></span>
+                            核心分析维度
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="border border-border rounded-lg p-4">
+                                <p class="text-sm font-medium mb-2">📈 销售业绩分析</p>
+                                <p class="text-xs text-secondary">分析销售额趋势、同比环比增长，识别销售高峰与低谷</p>
+                            </div>
+                            <div class="border border-border rounded-lg p-4">
+                                <p class="text-sm font-medium mb-2">💰 利润贡献分析</p>
+                                <p class="text-xs text-secondary">分析各产品类别、区域的利润贡献，优化产品组合策略</p>
+                            </div>
+                            <div class="border border-border rounded-lg p-4">
+                                <p class="text-sm font-medium mb-2">🗺️ 区域分布分析</p>
+                                <p class="text-xs text-secondary">分析不同区域的销售表现，识别高潜力市场与薄弱区域</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 数据看板 -->
+                    <div class="mb-8">
+                        <h4 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                            <span class="w-1 h-6 bg-amber-500"></span>
+                            数据看板
+                        </h4>
+                        
+                        <!-- Tableau Public 交互式仪表盘 -->
+                        <div class="border border-border rounded-lg overflow-hidden bg-white shadow-lg mb-4">
+                            <div class="bg-gradient-to-r from-amber-600 to-orange-600 px-6 py-3 flex items-center justify-between">
+                                <h5 class="text-white font-semibold text-sm">交互式仪表盘 (Tableau Public)</h5>
+                                <a href="https://public.tableau.com/app/profile/ruizhe.ma/viz/superstore_17805477598990/1" 
+                                   target="_blank"
+                                   class="px-3 py-1 bg-white/20 hover:bg-white/30 text-white text-xs rounded transition-colors flex items-center gap-1">
+                                    <span>全屏查看</span>
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <!-- Tableau Public 嵌入式仪表盘 -->
+                            <div class="relative">
+                                <!-- 加载提示 -->
+                                <div class="absolute inset-0 bg-amber-50 flex items-center justify-center z-10" id="tableau-loading">
+                                    <div class="flex flex-col items-center gap-3">
+                                        <div class="w-8 h-8 border-4 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
+                                        <p class="text-sm text-amber-700">正在加载Tableau仪表盘...</p>
+                                    </div>
+                                </div>
+                                <!-- Tableau 嵌入 -->
+                                <iframe 
+                                    src="https://public.tableau.com/views/superstore_17805477598990/1?:embed=y&:display_count=yes&:showVizHome=no&:toolbar=yes" 
+                                    width="100%" 
+                                    height="600" 
+                                    class="w-full"
+                                    style="min-height: 600px;"
+                                    onload="document.getElementById('tableau-loading').style.display='none'"
+                                    frameborder="0" 
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-border rounded-lg p-6 bg-white">
+                            <p class="text-center text-sm text-secondary mb-4">
+                                该仪表盘使用 Tableau Public 托管，包含以下核心分析模块：
+                            </p>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                                <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg p-3 text-center shadow-sm">
+                                    <p class="text-2xl mb-1">📈</p>
+                                    <p class="text-xs font-medium">销售趋势</p>
+                                </div>
+                                <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg p-3 text-center shadow-sm">
+                                    <p class="text-2xl mb-1">💰</p>
+                                    <p class="text-xs font-medium">利润分析</p>
+                                </div>
+                                <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg p-3 text-center shadow-sm">
+                                    <p class="text-2xl mb-1">🗺️</p>
+                                    <p class="text-xs font-medium">区域对比</p>
+                                </div>
+                                <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg p-3 text-center shadow-sm">
+                                    <p class="text-2xl mb-1">📦</p>
+                                    <p class="text-xs font-medium">产品类别</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col items-center gap-4">
+                                <a href="superstore经营分析仪表盘.twbx" download="Superstore经营分析仪表盘.twbx" 
+                                   class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-medium rounded-lg hover:from-amber-600 hover:to-orange-700 transition-all shadow-md hover:shadow-lg">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                                    </svg>
+                                    下载 Tableau 文件 (.twbx)
+                                </a>
+                                <div class="border border-amber-200 bg-amber-50 rounded-lg p-4 max-w-xl">
+                                    <p class="text-xs text-amber-800 font-medium mb-2">💡 交互功能说明</p>
+                                    <p class="text-xs text-amber-700 leading-relaxed">
+                                        仪表盘支持完整交互功能：点击图表进行数据钻取、使用筛选器进行数据过滤、调整参数查看不同维度的数据展示。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 技术实现 -->
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                            <span class="w-1 h-6 bg-amber-500"></span>
+                            技术实现要点
+                        </h4>
+                        <div class="border border-border rounded-lg p-6">
+                            <ul class="space-y-3 text-sm text-secondary">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-amber-600 font-bold">•</span>
+                                    <span><strong>数据连接：</strong>建立与Superstore销售数据的连接，支持多维度数据联合分析</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-amber-600 font-bold">•</span>
+                                    <span><strong>数据准备：</strong>使用Tableau Prep进行数据清洗、转换和整合，构建分析就绪的数据集</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-amber-600 font-bold">•</span>
+                                    <span><strong>可视化设计：</strong>运用Tableau强大的图表库，创建交互式仪表盘，支持钻取、筛选和自定义视图</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-amber-600 font-bold">•</span>
+                                    <span><strong>发布共享：</strong>通过Tableau Server发布仪表盘，实现团队协作和数据共享</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    
+    <script>
+        const sections = ['home', 'identity', 'resume', 'portfolio', 'knowledge'];
+        
+        function updateActiveNav() {
+            const scrollPos = window.scrollY + window.innerHeight * 0.3;
+            let currentSection = 'home';
+            
+            for (let i = sections.length - 1; i >= 0; i--) {
+                const el = document.getElementById(sections[i]);
+                if (el && el.offsetTop <= scrollPos) {
+                    currentSection = sections[i];
+                    break;
+                }
+            }
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                const href = link.getAttribute('href').replace('#', '');
+                if (href === currentSection) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) return;
+            scrollTimeout = setTimeout(() => { updateActiveNav(); scrollTimeout = null; }, 50);
+        });
+        
+        window.addEventListener('load', updateActiveNav);
+        
+        document.querySelectorAll('.resume-card, .project-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const modalId = card.getAttribute('data-modal-target');
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.classList.add('active');
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+        
+        function closeModal(modal) {
+            modal.classList.remove('active');
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    closeModal(overlay);
+                }
+            });
+        });
+        
+        document.querySelectorAll('.modal-close').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const modal = btn.closest('.modal-overlay');
+                if (modal) {
+                    closeModal(modal);
+                }
+            });
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                    closeModal(modal);
+                });
+            }
+        });
+        
+        // 分类筛选与分页系统
+        const ITEMS_PER_PAGE = 6;
+        let currentPage = 1;
+        let totalPages = 1;
+        let currentFilter = 'All';
+        let allProjects = [];
+        let filteredProjects = [];
+        
+        // 获取所有作品卡片
+        function getAllProjects() {
+            return Array.from(document.querySelectorAll('.project-card'));
+        }
+        
+        // 根据筛选条件过滤作品
+        function filterProjects(filter) {
+            if (filter === 'All') {
+                return getAllProjects();
+            }
+            return getAllProjects().filter(card => {
+                const tags = card.querySelectorAll('span');
+                return Array.from(tags).some(tag => tag.textContent.trim() === filter);
+            });
+        }
+        
+        // 更新分页信息
+        function updatePagination() {
+            const prevBtn = document.getElementById('prev-page');
+            const nextBtn = document.getElementById('next-page');
+            const pageInfo = document.getElementById('page-info');
+            
+            // 根据当前筛选条件获取过滤后的作品列表
+            filteredProjects = filterProjects(currentFilter);
+            totalPages = Math.max(1, Math.ceil(filteredProjects.length / ITEMS_PER_PAGE));
+            
+            // 确保当前页在有效范围内
+            if (currentPage > totalPages) {
+                currentPage = totalPages;
+            }
+            
+            // 更新页码显示
+            pageInfo.textContent = `${currentPage}/${totalPages}`;
+            
+            // 更新按钮状态
+            prevBtn.disabled = currentPage <= 1;
+            nextBtn.disabled = currentPage >= totalPages;
+            
+            // 隐藏所有作品
+            getAllProjects().forEach(project => {
+                project.style.display = 'none';
+            });
+            
+            // 显示当前页的作品
+            const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+            const endIndex = startIndex + ITEMS_PER_PAGE;
+            
+            filteredProjects.forEach((project, index) => {
+                if (index >= startIndex && index < endIndex) {
+                    project.style.display = 'block';
+                    project.style.opacity = '0';
+                    project.style.transform = 'translateY(20px)';
+                    // 添加过渡动画
+                    setTimeout(() => {
+                        project.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                        project.style.opacity = '1';
+                        project.style.transform = 'translateY(0)';
+                    }, (index - startIndex) * 100);
+                }
+            });
+        }
+        
+        // 切换到指定页
+        function goToPage(page) {
+            if (page < 1 || page > totalPages) return;
+            currentPage = page;
+            updatePagination();
+            // 滚动到作品集区域顶部
+            document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        // 分类筛选按钮事件
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // 更新按钮样式
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active', 'bg-black', 'text-white'));
+                btn.classList.add('active', 'bg-black', 'text-white');
+                
+                // 设置当前筛选条件并重置到第一页
+                currentFilter = btn.textContent.trim();
+                currentPage = 1;
+                updatePagination();
+            });
+        });
+        
+        // 分页按钮事件
+        document.getElementById('prev-page').addEventListener('click', () => {
+            goToPage(currentPage - 1);
+        });
+        
+        document.getElementById('next-page').addEventListener('click', () => {
+            goToPage(currentPage + 1);
+        });
+        
+        // 初始化
+        window.addEventListener('load', updatePagination);
+    </script>
+</body>
+</html>
