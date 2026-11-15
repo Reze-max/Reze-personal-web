@@ -53,7 +53,7 @@
     const timeout = setTimeout(() => controller?.abort(), 55000);
     try {
       const messages = [...history.slice(-14), {role: 'user', content: text}];
-      const response = await fetch('/api/chat', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({messages}), signal: controller.signal });
+      const response = await fetch(location.hostname === 'reze-max.github.io' ? 'https://reze-personal-ai.downyraspberry8.chatgpt.site/api/chat' : '/api/chat', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({messages}), signal: controller.signal });
       let data;
       try { data = await response.json(); } catch { throw new Error('AI 暂时无法连接，请稍后重试。'); }
       if (!response.ok) throw new Error(data.error || 'AI 暂时无法回答，请稍后重试。');

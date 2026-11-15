@@ -25,3 +25,9 @@ GitHub Pages 只能托管静态文件，不能执行本项目的 Node 接口。�
 `npm run test:chat` 验证请求边界、资料注入、响应解析与错误处理，使用模拟上游，不产生 API 费用。没有配置真实密钥时，不代表已经验证真实模型的回答质量。
 
 官方接口文档：https://api-docs.deepseek.com/api/create-chat-completion/
+
+## 2026-11-15线上发布
+
+GitHub Pages通过.github/workflows/pages.yml从main发布白名单静态产物。线上chat.js指向独立Sites接口：https://reze-personal-ai.downyraspberry8.chatgpt.site/api/chat 。本地仍使用/api/chat。Sites项目ID：appgprj_6af96f65538c819183c382bd5852777d。密钥在Sites环境变量中标记为secret。
+
+接口已完成私有部署。公开访问设置被自动审批拒绝，需要用户明确确认允许所有网站访客调用并产生API用量后才能开放。尚不能将线上聊天标记为完成。
