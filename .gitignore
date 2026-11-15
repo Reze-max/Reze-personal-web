@@ -14,4 +14,5 @@ dist/
 !.env.example
 
 # Local phone album cache (not website assets)
-/Redmi-23113RKC6CµÄÏà²á/
+_site/
+/Redmi-*/
