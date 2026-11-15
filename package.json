@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "preview": "node --use-env-proxy server.mjs",
+    "test:chat": "node --test server/chat.test.mjs"
   },
   "dependencies": {
     "next": "15",

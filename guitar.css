@@ -1,0 +1,32 @@
+body #guitar { background: #10100f url('assets/hero/light-texture.png') center / cover no-repeat; }
+body #guitar h2 { color: var(--paper); }
+.guitar-intro { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin: 0 0 36px; }
+.guitar-intro p { color: #c9bda9; font-size: 16px; }
+.guitar-intro > span { font: 10px Georgia, serif; letter-spacing: .18em; color: #a49783; }
+.guitar-film { background: #0b0b0a; border: 1px solid #474035; box-shadow: 0 16px 45px rgb(0 0 0 / .3); }
+.guitar-rail { height: 42px; background: #0b0b0a url('assets/guitar/film-rail.png') left center / auto 240px repeat-x; opacity: .72; }
+.guitar-track { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 32px) / 2); gap: 32px; padding: 8px 24px 0; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: #73634e #0b0b0a; }
+.guitar-frame { margin: 0; min-width: 0; scroll-snap-align: start; scroll-margin-left: 24px; }
+.guitar-frame-meta { display: flex; justify-content: space-between; padding: 0 0 12px; color: #a38c68; font: 10px ui-monospace, Consolas, monospace; letter-spacing: .14em; }
+.guitar-frame video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: #000; border: 1px solid #423b31; color-scheme: dark; }
+.guitar-frame figcaption { padding: 20px 0 24px; text-align: center; font-family: 'Noto Serif SC', serif; font-size: 23px; color: #eee4d4; letter-spacing: .08em; }
+.guitar-navigation { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 20px; }
+.guitar-hint { font-size: 12px; color: #b4a58f; }
+.guitar-navigation > div { display: flex; align-items: center; gap: 18px; }
+.guitar-navigation button { padding: 8px 13px; font-size: 12px; color: #d3c5af; border: 1px solid #60523f; border-radius: 4px; background: #171511; }
+.guitar-navigation button:hover:not(:disabled) { background: #bc9671; color: #15110d; }
+.guitar-navigation button:disabled { opacity: .35; cursor: default; }
+#guitar-position { font: 11px ui-monospace, Consolas, monospace; color: #ad9a7c; }
+.guitar-track:focus-visible, .guitar-navigation button:focus-visible { outline: 2px solid #bc9671; outline-offset: 4px; }
+@media (max-width: 767px) {
+  body > header nav { width: 100%; justify-content: space-between; gap: 8px; }
+  body > header .nav-link { white-space: nowrap; flex-shrink: 0; }
+  .guitar-intro { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .guitar-intro p { font-size: 14px; }
+  .guitar-track { grid-auto-columns: 100%; padding-left: 16px; padding-right: 16px; gap: 20px; }
+  .guitar-frame { scroll-margin-left: 16px; }
+  .guitar-frame figcaption { font-size: 21px; padding: 18px 0; }
+  .guitar-rail { height: 30px; background-size: auto 180px; }
+  .guitar-navigation { align-items: flex-start; flex-direction: column; }
+  .guitar-navigation > div { align-self: flex-end; }
+}

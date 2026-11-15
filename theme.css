@@ -1,0 +1,87 @@
+:root { color-scheme: dark; --paper: #eee9df; --muted: #bdb6ac; --copper: #bc9671; --line: #45413a; }
+body { background: #10100f; color: var(--paper); }
+body > header { background: rgb(16 16 15 / .94); border-bottom: 1px solid #35312b; }
+body > header .brand { display: flex; align-items: center; gap: 16px; color: var(--paper); font-family: 'Noto Serif SC', 'Songti SC', serif; font-size: 16px; white-space: nowrap; }
+.brand span { font-family: Georgia, serif; font-size: 29px; font-weight: 500; letter-spacing: .03em; }
+.brand i { display: block; width: 1px; height: 22px; background: #756958; }
+body .nav-link:hover, body .nav-link.active { color: var(--paper); }
+body .nav-link::after { background: var(--copper); }
+body ::-webkit-scrollbar-thumb { background: #45413a; }
+body main > section { scroll-margin-top: 75px; }
+body #home { min-height: 820px; }
+body #home > .max-w-content { padding-top: 130px; padding-bottom: 130px; }
+body #home h1 { font-family: 'Noto Serif SC', 'Songti SC', serif; font-size: clamp(32px, 3.4vw, 52px); font-weight: 600; line-height: 1.5; letter-spacing: -.025em; }
+body #home p { font-size: 18px; line-height: 1.9; }
+body #home #open-ai-chat { font-size: 15px; border-radius: 7px; min-height: 52px; }
+body #home::after { content: 'PORTFOLIO 2026'; position: absolute; left: 36px; top: 110px; writing-mode: vertical-rl; font: 11px Georgia, serif; letter-spacing: .35em; color: #a39580; border-left: 1px solid #685c4d; padding-left: 14px; height: 70%; pointer-events: none; }
+body #identity, body #knowledge, body #resume, body #portfolio { background: #10100f url('assets/hero/light-texture.png') center / cover no-repeat; }
+body #identity { padding-top: 80px; padding-bottom: 100px; }
+body #identity > .max-w-content > .grid { gap: 28px; }
+body #identity .grid > div { border-color: #736b5e; background: rgb(26 25 22 / .68); }
+body #identity h3 { font-family: 'Noto Serif SC', 'Songti SC', serif; font-size: 22px; color: var(--paper); }
+body #identity .grid > div > .border-b { padding: 16px 20px; }
+body #identity .grid > div > .p-4 { padding: 20px; }
+body #identity .grid > div > .p-4 p { color: #d0c7b9; }
+body #knowledge { padding-top: 100px; padding-bottom: 120px; }
+.skill-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; padding-top: 48px; border-top: 1px solid #605749; }
+.skill-grid > div { padding: 0 32px; border-left: 1px solid #514b41; }
+.skill-grid > div:first-child { padding-left: 0; border-left: 0; }
+.skill-grid > div:last-child { padding-right: 0; }
+.skill-label { font: 13px Georgia, serif; letter-spacing: .17em; color: #d0c7b9; }
+body .skill-grid h3 { margin-top: 10px; margin-bottom: 28px; font-family: 'Noto Serif SC', 'Songti SC', serif; font-size: 30px; font-weight: 500; }
+.skill-grid h3::after { content: ''; display: block; width: 40px; height: 3px; background: var(--copper); margin-top: 17px; }
+body .skill-grid ul { color: #ddd5c9; font-size: 15px; line-height: 1.9; }
+body .skill-grid li + li { margin-top: 14px; }
+/* Protected sections: only palette changes; no sizing, positioning or DOM changes. */
+body #identity h2, body #knowledge h2, body #resume h2, body #portfolio h2 { color: var(--paper); }
+body #resume .experience-card, body #portfolio .project-card { background: #191815; border-color: #514b41; }
+body #resume .bg-white { background: #10100f; }
+body #resume .border-black { border-color: #bc9671; }
+body #resume .bg-border { background: #514b41; }
+body #portfolio .filter-btn { border-color: #514b41; background: transparent; color: #bdb6ac; }
+body #portfolio .filter-btn.active { background: #bc9671; border-color: #bc9671; color: #16120e; }
+body #portfolio .filter-btn:hover { border-color: #bc9671; color: #eee9df; }
+body #portfolio .bg-gray-100 { background: #302c26; color: #d2c5b2; }
+body main > section [class*='border-[#222222]'] { border-color: #a59276; }
+body main > section [class*='bg-[#222222]'] { background: #a59276; }
+body .modal-content { background: #191815; color: var(--paper); }
+body .modal-content .bg-white { background: #24211c; }
+body .modal-content .bg-gray-100, body .modal-content .bg-gray-50 { background: #29251f; }
+body .modal-content .bg-amber-50, body .modal-content .bg-purple-50, body .modal-content .bg-blue-50, body .modal-content .bg-green-50, body .modal-content .bg-emerald-50 { background: #28241e; }
+body .modal-content .text-black { color: var(--paper); }
+/* Chat retains all behavior and adopts the same surface palette. */
+body .ai-dialog { background: #171613; color: #eee9df; border-color: #514b41; }
+body .ai-header, body .ai-bottom { border-color: #39352e; }
+body .ai-heading p, body .ai-intro p { color: #bcb2a3; }
+body .ai-label { border-color: #514b41; color: #bcb2a3; }
+body .ai-suggestions button { border-color: #514b41; background: #1d1b17; color: #d5cbbb; }
+body .ai-suggestions button:hover { border-color: #bc9671; }
+body .ai-message-assistant { background: #28241e; color: #eee9df; }
+body .ai-message-user { background: #bc9671; color: #16120e; }
+body .ai-form { border-color: #605749; }
+body .ai-send { background: #bc9671; color: #16120e; }
+body .ai-close:hover, body .ai-reset:hover { background: #302b23; color: #eee9df; }
+body .ai-footnote, body .ai-reset { color: #a99b88; }
+@media (max-width: 1023px) {
+  body #home::after { display: none; }
+  body #home { min-height: 100svh; }
+  body #home > .max-w-content { padding-top: 80px; padding-bottom: 80px; }
+  body #home h1 { font-size: 38px; }
+}
+@media (max-width: 767px) {
+  body > header > div { flex-direction: column; gap: 10px; padding-top: 10px; padding-bottom: 10px; }
+  body > header .brand { font-size: 13px; gap: 10px; }
+  .brand span { font-size: 21px; }
+  .brand i { height: 17px; }
+  body > header nav { gap: 20px; }
+  body > header .nav-link { font-size: 12px; }
+  body main > section { scroll-margin-top: 105px; }
+  body #home > .max-w-content { padding-top: 80px; padding-bottom: 80px; }
+  body #home h1 { font-size: 32px; }
+  body #home p { font-size: 16px; }
+  body #identity, body #knowledge { padding-top: 72px; padding-bottom: 72px; }
+  .skill-grid { grid-template-columns: 1fr; padding-top: 32px; gap: 32px; }
+  .skill-grid > div, .skill-grid > div:first-child, .skill-grid > div:last-child { padding: 0 0 32px; border-left: 0; border-bottom: 1px solid #514b41; }
+  .skill-grid > div:last-child { border-bottom: 0; }
+  body .skill-grid h3 { font-size: 27px; }
+}

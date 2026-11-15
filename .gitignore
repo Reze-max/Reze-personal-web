@@ -10,3 +10,8 @@ dist/
 .vercel
 
 *.log
+.env.*
+!.env.example
+
+# Local phone album cache (not website assets)
+/Redmi-23113RKC6CµÄÏà²á/

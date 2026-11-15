@@ -1,0 +1,20 @@
+#home { position: relative; isolation: isolate; overflow: hidden; background: #10100f; color: #eee9df; }
+#home .hero-background { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: #10100f; }
+#home .hero-background video { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; opacity: .3; }
+#home .hero-shade { position: absolute; inset: 0; background: rgb(16 16 15 / .34); }
+#home .hero-light { position: absolute; inset: 0; background: url('assets/hero/light-texture.png') center / cover no-repeat; mix-blend-mode: screen; opacity: .65; }
+#home h1 { color: #eee9df; text-shadow: 0 2px 24px rgb(0 0 0 / .6); }
+#home p { color: #d0c9be; text-shadow: 0 1px 12px #10100f; }
+#home #open-ai-chat { background: #bc9671; border-color: #c5a484; color: #16120e; box-shadow: 0 2px 14px rgb(0 0 0 / .12); }
+#home #open-ai-chat:hover { background: #cfac88; }
+#hero-motion { position: absolute; bottom: 24px; right: 32px; z-index: 1; padding: 7px 12px; border: 1px solid #706458; border-radius: 6px; background: rgb(16 16 15 / .7); color: #d0c9be; font-size: 11px; letter-spacing: .03em; }
+#hero-motion:hover { border-color: #c5a484; color: #eee9df; }
+#hero-motion:focus-visible { outline: 2px solid #bc9671; outline-offset: 4px; }
+header.on-hero { background: rgb(16 16 15 / .92); }
+header.on-hero .nav-link { color: #bcb5ab; }
+header.on-hero .nav-link.active, header.on-hero .nav-link:hover { color: #eee9df; }
+header.on-hero .nav-link::after { background: #bc9671; }
+@media (max-width: 767px) {
+  #home .hero-background video { object-position: 55% 50%; opacity: .24; }
+  #hero-motion { right: 24px; bottom: 16px; }
+}
