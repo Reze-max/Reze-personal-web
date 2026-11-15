@@ -30,4 +30,4 @@ GitHub Pages 只能托管静态文件，不能执行本项目的 Node 接口。�
 
 GitHub Pages通过.github/workflows/pages.yml从main发布白名单静态产物。线上chat.js指向独立Sites接口：https://reze-personal-ai.downyraspberry8.chatgpt.site/api/chat 。本地仍使用/api/chat。Sites项目ID：appgprj_6af96f65538c819183c382bd5852777d。密钥在Sites环境变量中标记为secret。
 
-接口已完成私有部署。公开访问设置被自动审批拒绝，需要用户明确确认允许所有网站访客调用并产生API用量后才能开放。尚不能将线上聊天标记为完成。
+2026-11-15用户明确授权公开接口并承担DeepSeek API用量费用后，接口已设为public。已从GitHub Pages正式网页验证真实回答及连续追问，均返回HTTP 200。密钥仍为Sites服务端secret，不在网页或仓库中。
