@@ -3,6 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // New visits and refreshes start at Home; in-page navigation still works.
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        if (location.hash) history.replaceState(history.state, '', location.pathname + location.search);
+        let entryInteracted = false;
+        addEventListener('pointerdown', () => { entryInteracted = true; }, { once: true });
+        addEventListener('keydown', () => { entryInteracted = true; }, { once: true });
+        addEventListener('pageshow', () => {
+            if (!entryInteracted) scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        });
+    </script>
     <title>马睿哲 - 个人空间</title>
     <link rel="stylesheet" href="chat.css">
     <link rel="stylesheet" href="hero-video.css">

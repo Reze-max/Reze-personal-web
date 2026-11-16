@@ -18,6 +18,9 @@ body #guitar h2 { color: var(--paper); }
 .guitar-navigation button:disabled { opacity: .35; cursor: default; }
 #guitar-position { font: 11px ui-monospace, Consolas, monospace; color: #ad9a7c; }
 .guitar-track:focus-visible, .guitar-navigation button:focus-visible { outline: 2px solid #bc9671; outline-offset: 4px; }
+.guitar-buffer-status { margin-top: 16px; color: #b4a58f; font-size: 12px; min-height: 20px; }
+.guitar-retry { margin-top: 8px; color: #d3c5af; text-decoration: underline; font-size: 12px; }
+.guitar-retry[hidden] { display: none; }
 @media (max-width: 767px) {
   body > header nav { width: 100%; justify-content: space-between; gap: 8px; }
   body > header .nav-link { white-space: nowrap; flex-shrink: 0; }
