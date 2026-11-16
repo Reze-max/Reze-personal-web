@@ -1,10 +1,10 @@
-body #guitar { background: #10100f url('assets/hero/light-texture.png') center / cover no-repeat; }
+body #guitar { background: #10100f url('assets/optimized/light-texture.webp') center / cover no-repeat; }
 body #guitar h2 { color: var(--paper); }
 .guitar-intro { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin: 0 0 36px; }
 .guitar-intro p { color: #c9bda9; font-size: 16px; }
 .guitar-intro > span { font: 10px Georgia, serif; letter-spacing: .18em; color: #a49783; }
 .guitar-film { background: #0b0b0a; border: 1px solid #474035; box-shadow: 0 16px 45px rgb(0 0 0 / .3); }
-.guitar-rail { height: 42px; background: #0b0b0a url('assets/guitar/film-rail.png') left center / auto 240px repeat-x; opacity: .72; }
+.guitar-rail { height: 42px; background: #0b0b0a url('assets/optimized/film-rail.webp') left center / auto 240px repeat-x; opacity: .72; }
 .guitar-track { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 32px) / 2); gap: 32px; padding: 8px 24px 0; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: #73634e #0b0b0a; }
 .guitar-frame { margin: 0; min-width: 0; scroll-snap-align: start; scroll-margin-left: 24px; }
 .guitar-frame-meta { display: flex; justify-content: space-between; padding: 0 0 12px; color: #a38c68; font: 10px ui-monospace, Consolas, monospace; letter-spacing: .14em; }

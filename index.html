@@ -9,34 +9,10 @@
     <script src="hero-video.js" defer></script>
     <script src="chat.js" defer></script>
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Noto Sans SC', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
-                    },
-                    colors: {
-                        primary: '#eee9df',
-                        secondary: '#bdb6ac',
-                        tertiary: '#999084',
-                        border: '#45413a',
-                        background: '#10100f',
-                    },
-                    maxWidth: {
-                        content: '1200px',
-                    },
-                },
-            },
-        }
-    </script>
-    
+    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <link rel="preload" as="image" href="assets/optimized/portrait.webp" imagesrcset="assets/optimized/portrait-small.webp 480w, assets/optimized/portrait.webp 960w" imagesizes="(min-width: 1024px) 420px, (min-width: 768px) 384px, calc(100vw - 48px)" fetchpriority="high">
+
     <style>
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans SC', sans-serif; color: #000000; background: #ffffff; line-height: 1.7; }
@@ -98,7 +74,7 @@
 <body class="bg-background">
     
     <!-- 顶部导航栏 -->
-    <header class="fixed top-0 inset-x-0 z-40 bg-background/95 backdrop-blur-sm">
+    <header class="fixed top-0 inset-x-0 z-40 bg-background/95 ">
         <div class="max-w-content mx-auto px-6 md:px-8 lg:px-16 py-4 flex items-center justify-between gap-6">
             <a class="brand" href="#home" aria-label="马睿哲首页"><span>MRZ</span><i></i>马睿哲</a>
             <nav class="flex items-center gap-6 md:gap-8">
@@ -121,7 +97,8 @@
         <section id="home" class="min-h-screen flex items-center pt-20">
             <div class="hero-background" aria-hidden="true">
                 <video id="hero-video" muted loop playsinline preload="metadata" poster="assets/hero/poster-v2.jpg" tabindex="-1" disablepictureinpicture>
-                    <source src="assets/hero/background-loop-v2.mp4" type="video/mp4">
+                    <source src="assets/hero/background-mobile.mp4" media="(max-width: 767px)" type="video/mp4">
+                    <source src="assets/hero/background-desktop.mp4" type="video/mp4">
                 </video>
                 <div class="hero-shade"></div>
                 <div class="hero-light"></div>
@@ -133,8 +110,8 @@
                     <!-- 左侧照片区域 -->
                     <div class="order-2 lg:order-1 animate-fade-in delay-1">
                         <div class="relative max-w-sm mx-auto lg:max-w-none">
-                            <img 
-                                src="新照片.jpg" 
+                            <img width="960" height="636" fetchpriority="high" decoding="async" srcset="assets/optimized/portrait-small.webp 480w, assets/optimized/portrait.webp 960w" sizes="(min-width: 1024px) 420px, (min-width: 768px) 384px, calc(100vw - 48px)"
+                                src="assets/optimized/portrait.webp"
                                 alt="马睿哲" 
                                 class="w-full h-auto rounded-lg"
                                 style="box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);"
@@ -195,7 +172,7 @@
                             <h3 class="text-lg font-medium">在校研究生</h3>
                         </div>
                         <div class="h-[400px] bg-white">
-                            <img src="1.jpg" alt="在校研究生" class="w-full h-full object-cover">
+                            <img decoding="async" loading="lazy" src="assets/optimized/identity-student.webp" alt="在校研究生" class="w-full h-full object-cover">
                         </div>
                         <div class="p-4 space-y-2">
                             <p class="text-sm text-secondary">北京交通大学信息管理硕士在读</p>
@@ -206,7 +183,7 @@
                             <h3 class="text-lg font-medium">策略产品经理</h3>
                         </div>
                         <div class="h-[400px] bg-white">
-                            <img src="2.jpg" alt="策略产品经理" class="w-full h-full object-cover">
+                            <img decoding="async" loading="lazy" src="assets/optimized/identity-product.webp" alt="策略产品经理" class="w-full h-full object-cover">
                         </div>
                         <div class="p-4 space-y-2">
                             <p class="text-sm text-secondary">专注于AI产品与策略产品方向</p>
@@ -217,7 +194,7 @@
                             <h3 class="text-lg font-medium">数据分析师</h3>
                         </div>
                         <div class="h-[400px] bg-white">
-                            <img src="3.jpg" alt="数据分析师" class="w-full h-full object-cover">
+                            <img decoding="async" loading="lazy" src="assets/optimized/identity-data.webp" alt="数据分析师" class="w-full h-full object-cover">
                         </div>
                         <div class="p-4 space-y-2">
                             <p class="text-sm text-secondary">具备扎实的数据分析与可视化能力</p>
@@ -267,7 +244,7 @@
                                         <li>• 搭建抢单活动60s接诊率监控体系</li>
                                     </ul>
                                     </div>
-                                    <div class="experience-photo"><img src="assets/experience/baidu.jpg" alt="百度办公楼" width="3" height="4" loading="lazy"></div>
+                                    <div class="experience-photo"><img decoding="async" src="assets/optimized/experience-baidu.webp" alt="百度办公楼" width="3" height="4" loading="lazy"></div>
                                 </div>
                             </div>
                         </div>
@@ -287,7 +264,7 @@
                                         <li>• 主导本地学练考需求，数据分析评估多渠道试卷补充成本和收益，本地学练考细化到区</li>
                                     </ul>
                                     </div>
-                                    <div class="experience-photo"><img src="assets/experience/zuoyebang.jpg" alt="作业帮办公楼" width="3" height="4" loading="lazy"></div>
+                                    <div class="experience-photo"><img decoding="async" src="assets/optimized/experience-zuoyebang.webp" alt="作业帮办公楼" width="3" height="4" loading="lazy"></div>
                                 </div>
                             </div>
                         </div>
@@ -307,7 +284,7 @@
                                         <li>• 打通直播间和货架的桥梁，设计绿通方案进行联动</li>
                                     </ul>
                                     </div>
-                                    <div class="experience-photo"><img src="assets/experience/kuaishou.jpg" alt="快手办公楼" width="3" height="4" loading="lazy"></div>
+                                    <div class="experience-photo"><img decoding="async" src="assets/optimized/experience-kuaishou.webp" alt="快手办公楼" width="3" height="4" loading="lazy"></div>
                                 </div>
                             </div>
                         </div>
@@ -426,7 +403,7 @@
                     <!-- 医生排序诊断工具 -->
                     <div class="project-card group cursor-pointer border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300">
                         <div class="h-48 bg-gray-50 flex items-center justify-center">
-                            <img src="https://via.placeholder.com/400x300?text=Product+Design" alt="产品设计" class="w-full h-full object-cover opacity-70">
+                            <span class="project-placeholder">Product Design</span>
                         </div>
                         <div class="p-5">
                             <h3 class="text-lg font-medium mb-3">百度医生排序诊断工具</h3>
@@ -499,7 +476,7 @@
                     <!-- 解忧杂货店的销售数据看板 -->
                     <div class="project-card group cursor-pointer border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300" data-modal-target="powerbi-modal">
                         <div class="h-48 bg-gradient-to-br from-purple-50 to-indigo-50 flex items-center justify-center overflow-hidden">
-                            <img src="解忧杂货店销售数据看板.jpg" alt="解忧杂货店销售数据看板" class="w-full h-full object-cover">
+                            <img decoding="async" loading="lazy" src="assets/optimized/sales.webp" alt="解忧杂货店销售数据看板" class="w-full h-full object-cover">
                         </div>
                         <div class="p-5">
                             <h3 class="text-lg font-medium mb-3">解忧杂货店的销售数据看板</h3>
@@ -515,8 +492,8 @@
                     <!-- Superstore经营情况仪表盘 -->
                     <div class="project-card group cursor-pointer border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300" data-modal-target="superstore-modal">
                         <div class="h-48 bg-gradient-to-br from-amber-50 to-orange-50 flex items-center justify-center overflow-hidden">
-                            <img 
-                                src="superstore经营情况仪表盘.jpg" 
+                            <img decoding="async"
+                                src="assets/optimized/superstore.webp"
                                 alt="Superstore经营情况仪表盘" 
                                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                                 loading="lazy"
@@ -556,7 +533,7 @@
                     <!-- 用户增长分析 (Tableau) -->
                     <div class="project-card group cursor-pointer border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300" data-modal-target="tableau-modal">
                         <div class="h-48 bg-gradient-to-br from-green-50 to-teal-50 flex items-center justify-center overflow-hidden">
-                            <img src="https://via.placeholder.com/400x300?text=Tableau+Dashboard" alt="Tableau" class="w-full h-full object-cover">
+                            <span class="project-placeholder">Tableau Dashboard</span>
                         </div>
                         <div class="p-5">
                             <h3 class="text-lg font-medium mb-3">用户增长分析 (Tableau)</h3>
@@ -610,28 +587,28 @@
                     <div class="guitar-track" id="guitar-track" tabindex="0" role="region" aria-label="吉他演奏胶卷，左右滚动浏览">
                         <figure class="guitar-frame">
                             <div class="guitar-frame-meta"><span>TAKE 01</span><span>00:18</span></div>
-                            <video controls playsinline preload="none" poster="assets/guitar/pianai.jpg" aria-label="吉他演奏《偏爱》">
+                            <video controls playsinline preload="none" data-poster="assets/optimized/guitar-pianai.webp" aria-label="吉他演奏《偏爱》">
                                 <source src="assets/guitar/pianai.mp4" type="video/mp4">
                             </video>
                             <figcaption>《偏爱》</figcaption>
                         </figure>
                         <figure class="guitar-frame">
                             <div class="guitar-frame-meta"><span>TAKE 02</span><span>01:34</span></div>
-                            <video controls playsinline preload="none" poster="assets/guitar/ta.jpg" aria-label="吉他演奏《她》">
+                            <video controls playsinline preload="none" data-poster="assets/optimized/guitar-ta.webp" aria-label="吉他演奏《她》">
                                 <source src="assets/guitar/ta.mp4" type="video/mp4">
                             </video>
                             <figcaption>《她》</figcaption>
                         </figure>
                         <figure class="guitar-frame">
                             <div class="guitar-frame-meta"><span>TAKE 03</span><span>00:49</span></div>
-                            <video controls playsinline preload="none" poster="assets/guitar/cloud.jpg" aria-label="吉他演奏《流行的云》">
+                            <video controls playsinline preload="none" data-poster="assets/optimized/guitar-cloud.webp" aria-label="吉他演奏《流行的云》">
                                 <source src="assets/guitar/cloud.mp4" type="video/mp4">
                             </video>
                             <figcaption>《流行的云》</figcaption>
                         </figure>
                         <figure class="guitar-frame">
                             <div class="guitar-frame-meta"><span>TAKE 04</span><span>00:35</span></div>
-                            <video controls playsinline preload="none" poster="assets/guitar/aicuo.jpg" aria-label="吉他演奏《爱错》">
+                            <video controls playsinline preload="none" data-poster="assets/optimized/guitar-aicuo.webp" aria-label="吉他演奏《爱错》">
                                 <source src="assets/guitar/aicuo.mp4" type="video/mp4">
                             </video>
                             <figcaption>《爱错》</figcaption>
@@ -771,7 +748,7 @@
                         </h4>
                         <div class="border border-border rounded-lg overflow-hidden bg-gradient-to-br from-purple-50 to-blue-50 mb-4">
                             <div class="h-96 md:h-[600px] lg:h-[800px] flex items-center justify-center">
-                                <iframe src="销售数据看板.pdf#toolbar=1&navpanes=0&view=FitH" 
+                                <iframe data-src="销售数据看板.pdf#toolbar=1&navpanes=0&view=FitH"
                                         class="w-full h-full bg-white"
                                         style="border: none; min-height: 600px;">
                                 </iframe>
@@ -1118,12 +1095,12 @@
                                 </div>
                                 <!-- Tableau 嵌入 -->
                                 <iframe 
-                                    src="https://public.tableau.com/views/superstore_17805477598990/1?:embed=y&:display_count=yes&:showVizHome=no&:toolbar=yes" 
+                                    data-src="https://public.tableau.com/views/superstore_17805477598990/1?:embed=y&:display_count=yes&:showVizHome=no&:toolbar=yes"
                                     width="100%" 
                                     height="600" 
                                     class="w-full"
                                     style="min-height: 600px;"
-                                    onload="document.getElementById('tableau-loading').style.display='none'"
+                                    onload="if(this.getAttribute('src')) document.getElementById('tableau-loading').style.display='none'"
                                     frameborder="0" 
                                     allowfullscreen>
                                 </iframe>
@@ -1245,6 +1222,7 @@
                     modal.classList.add('active');
                     modal.classList.remove('hidden');
                     document.body.style.overflow = 'hidden';
+                    modal.querySelectorAll('iframe[data-src]').forEach(frame => { frame.src = frame.dataset.src; delete frame.dataset.src; });
                 }
             });
         });

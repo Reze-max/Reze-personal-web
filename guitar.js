@@ -7,6 +7,13 @@
   const next = document.getElementById('guitar-next');
   const position = document.getElementById('guitar-position');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const posters = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const video = entry.target;
+    if (video.dataset.poster) { video.poster = video.dataset.poster; delete video.dataset.poster; }
+    posters.unobserve(video);
+  }), {rootMargin: '400px'});
+  videos.forEach(video => posters.observe(video));
   const step = () => frames[1].offsetLeft - frames[0].offsetLeft;
   function update() {
     const index = Math.max(0, Math.min(frames.length - 1, Math.round(track.scrollLeft / step())));

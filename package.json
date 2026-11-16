@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "preview": "node --use-env-proxy server.mjs",
-    "test:chat": "node --test server/chat.test.mjs"
+    "test:chat": "node --test server/chat.test.mjs",
+    "build:styles": "tailwindcss -c tailwind.site.cjs -i styles/utilities.css -o site.css --minify"
   },
   "dependencies": {
     "next": "15",
