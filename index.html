@@ -11,7 +11,7 @@
     
     <link rel="stylesheet" href="site.css">
     <link rel="stylesheet" href="assets/fonts/fonts.css">
-    <link rel="preload" as="image" href="assets/optimized/portrait.webp" imagesrcset="assets/optimized/portrait-small.webp 480w, assets/optimized/portrait.webp 960w" imagesizes="(min-width: 1024px) 420px, (min-width: 768px) 384px, calc(100vw - 48px)" fetchpriority="high">
+    <link rel="preload" as="image" href="新照片.jpg" fetchpriority="high">
 
     <style>
         html { scroll-behavior: smooth; }
@@ -97,8 +97,7 @@
         <section id="home" class="min-h-screen flex items-center pt-20">
             <div class="hero-background" aria-hidden="true">
                 <video id="hero-video" muted loop playsinline preload="metadata" poster="assets/hero/poster-v2.jpg" tabindex="-1" disablepictureinpicture>
-                    <source src="assets/hero/background-mobile.mp4" media="(max-width: 767px)" type="video/mp4">
-                    <source src="assets/hero/background-desktop.mp4" type="video/mp4">
+                    <source src="assets/hero/background-loop-v2.mp4" type="video/mp4">
                 </video>
                 <div class="hero-shade"></div>
                 <div class="hero-light"></div>
@@ -110,8 +109,8 @@
                     <!-- 左侧照片区域 -->
                     <div class="order-2 lg:order-1 animate-fade-in delay-1">
                         <div class="relative max-w-sm mx-auto lg:max-w-none">
-                            <img width="960" height="636" fetchpriority="high" decoding="async" srcset="assets/optimized/portrait-small.webp 480w, assets/optimized/portrait.webp 960w" sizes="(min-width: 1024px) 420px, (min-width: 768px) 384px, calc(100vw - 48px)"
-                                src="assets/optimized/portrait.webp"
+                            <img fetchpriority="high" decoding="async"
+                                src="新照片.jpg"
                                 alt="马睿哲" 
                                 class="w-full h-auto rounded-lg"
                                 style="box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);"
@@ -172,7 +171,7 @@
                             <h3 class="text-lg font-medium">在校研究生</h3>
                         </div>
                         <div class="h-[400px] bg-white">
-                            <img decoding="async" loading="lazy" src="assets/optimized/identity-student.webp" alt="在校研究生" class="w-full h-full object-cover">
+                            <img decoding="async" loading="lazy" src="1.jpg" alt="在校研究生" class="w-full h-full object-cover">
                         </div>
                         <div class="p-4 space-y-2">
                             <p class="text-sm text-secondary">北京交通大学信息管理硕士在读</p>
@@ -183,7 +182,7 @@
                             <h3 class="text-lg font-medium">策略产品经理</h3>
                         </div>
                         <div class="h-[400px] bg-white">
-                            <img decoding="async" loading="lazy" src="assets/optimized/identity-product.webp" alt="策略产品经理" class="w-full h-full object-cover">
+                            <img decoding="async" loading="lazy" src="2.jpg" alt="策略产品经理" class="w-full h-full object-cover">
                         </div>
                         <div class="p-4 space-y-2">
                             <p class="text-sm text-secondary">专注于AI产品与策略产品方向</p>
@@ -194,7 +193,7 @@
                             <h3 class="text-lg font-medium">数据分析师</h3>
                         </div>
                         <div class="h-[400px] bg-white">
-                            <img decoding="async" loading="lazy" src="assets/optimized/identity-data.webp" alt="数据分析师" class="w-full h-full object-cover">
+                            <img decoding="async" loading="lazy" src="3.jpg" alt="数据分析师" class="w-full h-full object-cover">
                         </div>
                         <div class="p-4 space-y-2">
                             <p class="text-sm text-secondary">具备扎实的数据分析与可视化能力</p>
@@ -244,7 +243,7 @@
                                         <li>• 搭建抢单活动60s接诊率监控体系</li>
                                     </ul>
                                     </div>
-                                    <div class="experience-photo"><img decoding="async" src="assets/optimized/experience-baidu.webp" alt="百度办公楼" width="3" height="4" loading="lazy"></div>
+                                    <div class="experience-photo"><img decoding="async" src="assets/experience/baidu.jpg" alt="百度办公楼" width="3" height="4" loading="lazy"></div>
                                 </div>
                             </div>
                         </div>
@@ -264,7 +263,7 @@
                                         <li>• 主导本地学练考需求，数据分析评估多渠道试卷补充成本和收益，本地学练考细化到区</li>
                                     </ul>
                                     </div>
-                                    <div class="experience-photo"><img decoding="async" src="assets/optimized/experience-zuoyebang.webp" alt="作业帮办公楼" width="3" height="4" loading="lazy"></div>
+                                    <div class="experience-photo"><img decoding="async" src="assets/experience/zuoyebang.jpg" alt="作业帮办公楼" width="3" height="4" loading="lazy"></div>
                                 </div>
                             </div>
                         </div>
@@ -284,7 +283,7 @@
                                         <li>• 打通直播间和货架的桥梁，设计绿通方案进行联动</li>
                                     </ul>
                                     </div>
-                                    <div class="experience-photo"><img decoding="async" src="assets/optimized/experience-kuaishou.webp" alt="快手办公楼" width="3" height="4" loading="lazy"></div>
+                                    <div class="experience-photo"><img decoding="async" src="assets/experience/kuaishou.jpg" alt="快手办公楼" width="3" height="4" loading="lazy"></div>
                                 </div>
                             </div>
                         </div>
@@ -476,7 +475,7 @@
                     <!-- 解忧杂货店的销售数据看板 -->
                     <div class="project-card group cursor-pointer border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300" data-modal-target="powerbi-modal">
                         <div class="h-48 bg-gradient-to-br from-purple-50 to-indigo-50 flex items-center justify-center overflow-hidden">
-                            <img decoding="async" loading="lazy" src="assets/optimized/sales.webp" alt="解忧杂货店销售数据看板" class="w-full h-full object-cover">
+                            <img decoding="async" loading="lazy" src="解忧杂货店销售数据看板.jpg" alt="解忧杂货店销售数据看板" class="w-full h-full object-cover">
                         </div>
                         <div class="p-5">
                             <h3 class="text-lg font-medium mb-3">解忧杂货店的销售数据看板</h3>
@@ -493,7 +492,7 @@
                     <div class="project-card group cursor-pointer border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300" data-modal-target="superstore-modal">
                         <div class="h-48 bg-gradient-to-br from-amber-50 to-orange-50 flex items-center justify-center overflow-hidden">
                             <img decoding="async"
-                                src="assets/optimized/superstore.webp"
+                                src="superstore经营情况仪表盘.jpg"
                                 alt="Superstore经营情况仪表盘" 
                                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                                 loading="lazy"
@@ -587,28 +586,28 @@
                     <div class="guitar-track" id="guitar-track" tabindex="0" role="region" aria-label="吉他演奏胶卷，左右滚动浏览">
                         <figure class="guitar-frame">
                             <div class="guitar-frame-meta"><span>TAKE 01</span><span>00:18</span></div>
-                            <video controls playsinline preload="none" data-poster="assets/optimized/guitar-pianai.webp" aria-label="吉他演奏《偏爱》">
+                            <video controls playsinline preload="none" data-poster="assets/guitar/pianai.jpg" aria-label="吉他演奏《偏爱》">
                                 <source src="assets/guitar/pianai.mp4" type="video/mp4">
                             </video>
                             <figcaption>《偏爱》</figcaption>
                         </figure>
                         <figure class="guitar-frame">
                             <div class="guitar-frame-meta"><span>TAKE 02</span><span>01:34</span></div>
-                            <video controls playsinline preload="none" data-poster="assets/optimized/guitar-ta.webp" aria-label="吉他演奏《她》">
+                            <video controls playsinline preload="none" data-poster="assets/guitar/ta.jpg" aria-label="吉他演奏《她》">
                                 <source src="assets/guitar/ta.mp4" type="video/mp4">
                             </video>
                             <figcaption>《她》</figcaption>
                         </figure>
                         <figure class="guitar-frame">
                             <div class="guitar-frame-meta"><span>TAKE 03</span><span>00:49</span></div>
-                            <video controls playsinline preload="none" data-poster="assets/optimized/guitar-cloud.webp" aria-label="吉他演奏《流行的云》">
+                            <video controls playsinline preload="none" data-poster="assets/guitar/cloud.jpg" aria-label="吉他演奏《流行的云》">
                                 <source src="assets/guitar/cloud.mp4" type="video/mp4">
                             </video>
                             <figcaption>《流行的云》</figcaption>
                         </figure>
                         <figure class="guitar-frame">
                             <div class="guitar-frame-meta"><span>TAKE 04</span><span>00:35</span></div>
-                            <video controls playsinline preload="none" data-poster="assets/optimized/guitar-aicuo.webp" aria-label="吉他演奏《爱错》">
+                            <video controls playsinline preload="none" data-poster="assets/guitar/aicuo.jpg" aria-label="吉他演奏《爱错》">
                                 <source src="assets/guitar/aicuo.mp4" type="video/mp4">
                             </video>
                             <figcaption>《爱错》</figcaption>

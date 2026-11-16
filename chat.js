@@ -7,7 +7,7 @@
   overlay.innerHTML = `
     <section class="ai-dialog" role="dialog" aria-modal="true" aria-labelledby="ai-title">
       <header class="ai-header">
-        <img class="ai-avatar" src="assets/optimized/portrait-small.webp" alt="">
+        <img class="ai-avatar" src="新照片.jpg" alt="">
         <div class="ai-heading"><h2 id="ai-title">马睿哲的 AI 分身</h2><p>关于我的经历、项目和产品思考</p></div>
         <button class="ai-close" type="button" aria-label="关闭对话">×</button>
       </header>

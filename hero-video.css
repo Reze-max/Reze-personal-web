@@ -2,7 +2,7 @@
 #home .hero-background { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: #10100f; }
 #home .hero-background video { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; opacity: .3; }
 #home .hero-shade { position: absolute; inset: 0; background: rgb(16 16 15 / .34); }
-#home .hero-light { position: absolute; inset: 0; background: url('assets/optimized/light-texture.webp') center / cover no-repeat; mix-blend-mode: screen; opacity: .65; }
+#home .hero-light { position: absolute; inset: 0; background: url('assets/hero/light-texture.png') center / cover no-repeat; mix-blend-mode: screen; opacity: .65; }
 #home h1 { color: #eee9df; text-shadow: 0 2px 24px rgb(0 0 0 / .6); }
 #home p { color: #d0c9be; text-shadow: 0 1px 12px #10100f; }
 #home #open-ai-chat { background: #bc9671; border-color: #c5a484; color: #16120e; box-shadow: 0 2px 14px rgb(0 0 0 / .12); }
