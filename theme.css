@@ -15,7 +15,7 @@ body #home h1 { font-family: 'Noto Serif SC', 'Songti SC', serif; font-size: cla
 body #home p { font-size: 18px; line-height: 1.9; }
 body #home #open-ai-chat { font-size: 15px; border-radius: 7px; min-height: 52px; }
 body #home::after { content: 'PORTFOLIO 2026'; position: absolute; left: 36px; top: 110px; writing-mode: vertical-rl; font: 11px Georgia, serif; letter-spacing: .35em; color: #a39580; border-left: 1px solid #685c4d; padding-left: 14px; height: 70%; pointer-events: none; }
-body #identity, body #knowledge, body #resume, body #portfolio { background: #10100f url('assets/hero/light-texture.png') center / cover no-repeat; }
+body #identity, body #knowledge, body #resume, body #portfolio { background: #10100f url('assets/hero/light-texture-lossless.webp') center / cover no-repeat; }
 body #identity { padding-top: 80px; padding-bottom: 100px; }
 body #identity > .max-w-content > .grid { gap: 28px; }
 body #identity .grid > div { border-color: #736b5e; background: rgb(26 25 22 / .68); }

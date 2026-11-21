@@ -17,6 +17,7 @@
     <title>马睿哲 - 个人空间</title>
     <link rel="stylesheet" href="chat.css">
     <link rel="stylesheet" href="hero-video.css">
+    <script src="media-cache.js" defer></script>
     <script src="hero-video.js" defer></script>
     <script src="chat.js" defer></script>
     
@@ -107,8 +108,8 @@
         ============================================ -->
         <section id="home" class="min-h-screen flex items-center pt-20">
             <div class="hero-background" aria-hidden="true">
-                <video id="hero-video" muted loop playsinline preload="metadata" poster="assets/hero/poster-v2.jpg" tabindex="-1" disablepictureinpicture>
-                    <source src="assets/hero/background-loop-v2.mp4" type="video/mp4">
+                <video id="hero-video" muted loop playsinline preload="none" poster="assets/hero/poster-v2.jpg" tabindex="-1" disablepictureinpicture>
+                    <source data-src="assets/hero/background-loop-v2.mp4" type="video/mp4">
                 </video>
                 <div class="hero-shade"></div>
                 <div class="hero-light"></div>
@@ -598,28 +599,28 @@
                         <figure class="guitar-frame">
                             <div class="guitar-frame-meta"><span>TAKE 01</span><span>00:18</span></div>
                             <video controls playsinline preload="none" data-poster="assets/guitar/pianai.jpg" aria-label="吉他演奏《偏爱》">
-                                <source src="assets/guitar/pianai.mp4" type="video/mp4">
+                                <source data-src="assets/guitar/pianai.mp4" type="video/mp4">
                             </video>
                             <figcaption>《偏爱》</figcaption>
                         </figure>
                         <figure class="guitar-frame">
                             <div class="guitar-frame-meta"><span>TAKE 02</span><span>01:34</span></div>
                             <video controls playsinline preload="none" data-poster="assets/guitar/ta.jpg" aria-label="吉他演奏《她》">
-                                <source src="assets/guitar/ta.mp4" type="video/mp4">
+                                <source data-src="assets/guitar/ta.mp4" type="video/mp4">
                             </video>
                             <figcaption>《她》</figcaption>
                         </figure>
                         <figure class="guitar-frame">
                             <div class="guitar-frame-meta"><span>TAKE 03</span><span>00:49</span></div>
                             <video controls playsinline preload="none" data-poster="assets/guitar/cloud.jpg" aria-label="吉他演奏《流行的云》">
-                                <source src="assets/guitar/cloud.mp4" type="video/mp4">
+                                <source data-src="assets/guitar/cloud.mp4" type="video/mp4">
                             </video>
                             <figcaption>《流行的云》</figcaption>
                         </figure>
                         <figure class="guitar-frame">
                             <div class="guitar-frame-meta"><span>TAKE 04</span><span>00:35</span></div>
                             <video controls playsinline preload="none" data-poster="assets/guitar/aicuo.jpg" aria-label="吉他演奏《爱错》">
-                                <source src="assets/guitar/aicuo.mp4" type="video/mp4">
+                                <source data-src="assets/guitar/aicuo.mp4" type="video/mp4">
                             </video>
                             <figcaption>《爱错》</figcaption>
                         </figure>
